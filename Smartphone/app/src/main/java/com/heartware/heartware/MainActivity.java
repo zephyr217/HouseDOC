@@ -19,8 +19,6 @@ import android.widget.TextView;
 
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 
-import java.net.MalformedURLException;
-
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -44,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        try {
+       /*try {
             mClient = new MobileServiceClient("https://heartware.azurewebsites.net", this);
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        }
-
+        }*/
+       
         TodoItem item = new TodoItem();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

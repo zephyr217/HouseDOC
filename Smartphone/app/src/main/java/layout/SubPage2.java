@@ -1,4 +1,4 @@
-package layout;
+/*package layout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,3 +34,4 @@ public class SubPage2 extends Fragment {
         return view;
     }
 }
+*/

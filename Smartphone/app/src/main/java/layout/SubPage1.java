@@ -1,4 +1,4 @@
-package layout;
+/*package layout;
 
 import android.content.Context;
 import android.net.Uri;
@@ -29,3 +29,4 @@ public class SubPage1 extends Fragment {
         return inflater.inflate(R.layout.fragment_sub_page1, container, false);
     }
 }
+*/
