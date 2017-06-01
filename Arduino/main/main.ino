@@ -28,12 +28,15 @@ void setup() {
   //set Extended Mode.
   //0:12-bit Temperature(-55C to +128C) 1:13-bit Temperature(-55C to +150C)
   sensor0.setExtendedMode(0);
+
 }
 void sendto_android(){
   
   //trimit doar sirul taiat de la E incolo
   //daca au trecut 30 de secunde, trimit tot sirul
-  BTserial.print("abc");
+  Serial.print(sir);
+  BTserial.print(sir);
+  sir = "\0";
   }
 void read_sensors(){
  float temperatura;
@@ -45,10 +48,12 @@ void read_sensors(){
   sir += temperatura;
   sir += "P";
   sir += analogRead(A0);
+ 
   sir += "E";
-  for (int i = 0; i < 100; i++){
+  for (int i = 0; i < 10; i++){
     sir += analogRead(A1);
     sir += "-";
+   
     }
  sir += "F\n";
   }
@@ -58,12 +63,12 @@ void loop()
 {   
 unsigned long currentMillis = millis();
 
+
+read_sensors();  
 sendto_android();
-read_sensors();
 
 
-
-if(currentMillis - previousMillisEcg >= intervalEcg){
+/*if(currentMillis - previousMillisEcg >= intervalEcg){
   previousMillisEcg = currentMillis;
   sir += analogRead(A1);
   sir += "-";
@@ -75,7 +80,7 @@ if(currentMillis - previousMillisEcg >= intervalEcg){
       previousMillisTrSir = currentMillis;
     }
   }
-}
+}*/
 
 /*
 // Serial.println("cnt "+counter);
@@ -104,6 +109,6 @@ if(currentMillis - previousMillisEcg >= intervalEcg){
   }*/
   
  
- //delay(1000); 
+ delay(1000); 
  
 }
